@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+body,
+input,
+select,
+textarea,
+button,
+.Toastify__toast-body {
+  color: $dark;
+  font-family: "Tajawal", sans-serif;
+}
+
+.Toastify__toast-body {
+  color: #fff;
+}

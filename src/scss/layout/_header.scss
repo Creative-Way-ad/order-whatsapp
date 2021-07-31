@@ -1,0 +1,35 @@
+.header {
+  background: linear-gradient(180deg, rgba($lightBlue, 0.8) 0%, rgba($darkBlue, 1) 100%),
+    url("../../img/header-bg.jpg") fixed no-repeat;
+  height: 250px;
+  color: #fff;
+  position: relative;
+
+  &--content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+  }
+  &--titile {
+    font-size: 1.6rem;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: -0%;
+    top: 100%;
+    z-index: 5;
+    display: block;
+    height: 40px;
+    background-size: 40px 100%;
+    background-image: linear-gradient(135deg, rgba($darkBlue, 1) 25%, transparent 25%),
+      linear-gradient(225deg, rgba($darkBlue, 1) 25%, transparent 25%);
+    background-position: 0 0;
+  }
+}

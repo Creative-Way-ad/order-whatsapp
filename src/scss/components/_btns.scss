@@ -1,0 +1,35 @@
+.btn {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  &--primary {
+    background-color: $lightBlue;
+    color: #fff;
+    &:hover {
+      background-color: $darkBlue;
+    }
+  }
+
+  &--danger {
+    background-color: $lightRed;
+    color: #fff;
+    &:hover {
+      background-color: $darkRed;
+    }
+    &__light {
+      color: $lightRed;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

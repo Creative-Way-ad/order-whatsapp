@@ -1,0 +1,40 @@
+.form {
+  margin: 10px 0;
+}
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  label {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 5px;
+    font-weight: bold;
+  }
+  input {
+    font-size: 1rem;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    box-shadow: none;
+    background: #fff;
+
+    &:focus {
+      outline: none;
+      border-color: $darkBlue;
+    }
+  }
+}
+
+textarea {
+  font-size: 1rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-shadow: none;
+  background: #fff;
+  &:focus {
+    outline: none;
+    border-color: $darkBlue;
+  }
+}

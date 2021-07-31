@@ -1,0 +1,17 @@
+@import "base/variables";
+@import "base/mixins";
+@import "base/reset";
+@import "base/utilities.scss";
+
+@import "components/btns";
+@import "components/forms";
+@import "components/menu";
+@import "components/card";
+@import "components/addCart";
+@import "components/cartIcon";
+
+@import "layout/header";
+@import "layout/footer";
+
+@import "pages/home";
+@import "pages/checkout";
