@@ -23,6 +23,7 @@ export default function AddCartModal() {
 
   useEffect(() => {
     setFormData({ ...formData, ...modalData });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modalData]);
 
   return (

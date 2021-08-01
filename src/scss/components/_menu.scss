@@ -15,7 +15,6 @@
     top: 10px;
   }
   &--content {
-    display: none;
     background-color: rgba($color: #000000, $alpha: 0.7);
     overflow: hidden;
     position: fixed;
@@ -27,27 +26,17 @@
     min-height: 100vh;
     z-index: 10;
 
-    &__open {
-      display: block;
-    }
     .nav {
-      right: -700px;
+      position: relative;
       background-color: #fff;
       width: 400px;
       height: 100%;
       overflow-y: auto;
       color: #000000;
       padding: 40px 10px 10px 10px;
-      position: relative;
-      transition: all 0.3s ease-in-out;
 
       @include responsive-mobile {
         width: 300px;
-      }
-
-      &__open {
-        right: 0;
-        transition: all 0.3s ease-in-out;
       }
       &--item {
         list-style-type: none;

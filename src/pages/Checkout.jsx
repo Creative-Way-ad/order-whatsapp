@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import { AppContext } from "../Context";
 import { toast } from "react-toastify";
-import { useHistory, useLocation } from "react-router-dom";
 
 export default function Checkout() {
   const { cart } = useContext(AppContext);
