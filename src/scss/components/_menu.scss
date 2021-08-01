@@ -41,6 +41,10 @@
       position: relative;
       transition: all 0.3s ease-in-out;
 
+      @include responsive-mobile {
+        width: 300px;
+      }
+
       &__open {
         right: 0;
         transition: all 0.3s ease-in-out;
