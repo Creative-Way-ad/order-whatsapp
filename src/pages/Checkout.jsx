@@ -51,8 +51,10 @@ ${cart
 العنوان: ${formData.address}
 الوقت: ${formData.time}
 التفاصيل: ${formData.comment || "لا يوجد"}
+
+
     `;
-    window.location.href = `https://wa.me/00201008252601?text=${encodeURIComponent(message)}`;
+    window.location.href = `https://wa.me/+201008252601?text=${encodeURIComponent(message)}`;
   };
 
   useEffect(() => {
@@ -105,7 +107,7 @@ ${cart
               </div>
               <div className="form-group">
                 <label htmlFor="time">وقت التوصيل</label>
-                <input type="text" name="time" id="time" value={formData.time} onChange={handleChange} />
+                <input type="datetime-local" name="time" id="time" value={formData.time} onChange={handleChange} />
               </div>
             </section>
             <section className="section">
