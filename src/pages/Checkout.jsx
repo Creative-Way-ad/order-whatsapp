@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { AppContext } from "../Context";
 import { toast } from "react-toastify";
 import { getWord } from "../translate";
+import axios from "axios";
 
 export default function Checkout() {
   const { cart } = useContext(AppContext);
@@ -12,6 +13,7 @@ export default function Checkout() {
     time: "",
     comment: "",
   });
+  const delivery = 20;
   const [cartTotal, setCartTotal] = useState(0);
 
   const handleChange = (e) => {
@@ -34,6 +36,29 @@ export default function Checkout() {
       return toast.error(getWord("errFillEmpty"));
     }
 
+    let optionsString = "[";
+    cart.forEach(
+      (el) => (optionsString += JSON.stringify({ size: el.size, extras: el.extras, crust: el.crust }) + ", ")
+    );
+    optionsString = optionsString.slice(0, -2);
+    optionsString += "]";
+
+    axios
+      .post("https://demo.aroma-perfume.net/backend/product/createOrder", {
+        paymentMethod: 1,
+        deliveryTime: formData.time,
+        address: formData.address,
+        customerName: formData.name,
+        phone: " ",
+        comment: formData.comment,
+        productId: String(cart.map((item) => item.productId)),
+        options: optionsString,
+        cost: String(cartTotal + delivery),
+      })
+      .then((res) => {
+        console.log(res, optionsString);
+      });
+
     const message = `
 هذه رساله الطلب الخاصه بي
 
@@ -44,7 +69,7 @@ ${cart
   })
   .join("\n")}
 
-المبلغ المطلوب + التوصيل: $${sumCartTotals() + 20}
+المبلغ المطلوب + التوصيل: $${sumCartTotals() + delivery}
 
 =============
 
@@ -83,7 +108,7 @@ ${cart
                 {getWord("delivery")}:<span className="price">$20</span>
               </p>
               <p>
-                {getWord("summation")}:<span className="price">${cartTotal + 20}</span>
+                {getWord("summation")}:<span className="price">${cartTotal + delivery}</span>
               </p>
               <button className="btn btn--primary" onClick={handleOrder}>
                 {getWord("orderNow")}
