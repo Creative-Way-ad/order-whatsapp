@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 export const AppContext = React.createContext();
@@ -34,19 +35,37 @@ export function AppContextProvider({ children }) {
   };
 
   const filterProducts = (filter) => {
-    if (filter !== "all") {
-      const filteredProducts = tempProducts.filter((product) => {
-        return product.category.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
-      });
-      setProducts(filteredProducts);
+    if (filter !== "-1") {
+      axios
+        .post("https://demo.aroma-perfume.net/backend/product/getProductShop", {
+          filter: ` where car_product.id_cat = ${filter}`,
+        })
+        .then((res) => {
+          setProducts(res.data.data);
+        });
     } else {
-      setProducts(tempProducts);
+      getAllProducts();
     }
   };
 
+  const getAllProducts = () => {
+    axios
+      .post("https://demo.aroma-perfume.net/backend/product/getProductShop", {
+        filter: " ",
+      })
+      .then((res) => {
+        setProducts(res.data.data);
+      });
+  };
+
   useEffect(() => {
-    setProducts(tempProducts);
+    getAllProducts();
   }, []);
+
+  useEffect(() => {
+    const tempProducts = [];
+    products.forEach((product) => {});
+  }, [products]);
 
   return (
     <AppContext.Provider

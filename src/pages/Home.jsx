@@ -12,8 +12,9 @@ export default function Home() {
       <div className="products">
         {products.map((product) => (
           <Card
-            key={product.id}
-            image={product.image}
+            key={product.id_product}
+            id={product.id_product}
+            image={`https://demo.aroma-perfume.net/backend/uploads/${product.url_img}`}
             name={product.name}
             description={product.description}
             price={product.price}

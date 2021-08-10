@@ -1,8 +1,28 @@
 export function getWord(key) {
-  return arabic[key] || "NOT FOUND";
+  return arabic[key] || key;
 }
 
 const arabic = {
   SiteTitle: "عنوان الموقع",
   SiteDescription: "وصف الموقع",
+  size: "حجم",
+  extras: "إضافات",
+  crust: "قشرة",
+  copyright: "جميع الحقوق محفوظة",
+  seeAll: "إظهار الكل",
+  sendApplication: "ارسال الطلب",
+  computation: "الحساب",
+  quantity: "الكمية",
+  delivery: "التوصيل",
+  summation: "المجموع الكلي",
+  orderNow: "اطلب الآن",
+  buyerInfo: "معلومات عن المشتري",
+  buyerName: "اسم المشتري",
+  orderMoreInfo: "مزيد من المعلومات عن الطلب",
+  orderAddress: "عنوان التوصيل",
+  orderTime: "وقت التوصيل",
+  orderComment: "تعليق",
+  errFillEmpty: "الرجاء تعبئة المعلومات المطلوبة",
+  addCart: "اضف للسلة",
+  close: "اغلاق",
 };

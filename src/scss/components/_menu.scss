@@ -1,10 +1,10 @@
 .menu {
-  &--icon {
+  &__icon {
     font-size: 1.2rem;
     cursor: pointer;
     padding: 5px;
   }
-  &--close {
+  &__close {
     font-size: 1.3rem;
     cursor: pointer;
     padding: 2px;
@@ -14,7 +14,7 @@
     left: 15px;
     top: 10px;
   }
-  &--content {
+  &__content {
     background-color: rgba($color: #000000, $alpha: 0.7);
     overflow: hidden;
     position: fixed;
@@ -38,7 +38,7 @@
       @include responsive-mobile {
         width: 300px;
       }
-      &--item {
+      &__item {
         list-style-type: none;
         cursor: pointer;
         padding: 10px 5px;
@@ -47,19 +47,17 @@
         &:not(:last-of-type) {
           border-bottom: 1px solid #eee;
         }
-        &__dropdown {
-        }
         .dropdown {
           display: none;
           list-style-type: none;
           padding: 10px 20px;
 
-          &__open {
+          &--open {
             display: block;
           }
-          &--item {
+          &__item {
             font-size: 1.05rem;
-            padding: 5px 3px;
+            padding: 4px 3px;
           }
         }
       }

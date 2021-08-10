@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import { AppContext } from "../Context";
 import { toast } from "react-toastify";
+import { getWord } from "../translate";
 
 export default function Checkout() {
   const { cart } = useContext(AppContext);
@@ -23,14 +24,14 @@ export default function Checkout() {
   const sumCartTotals = () => {
     let sum = 0;
     cart.map((item) => {
-      sum += item.productPrice * item.productQuantity;
+      sum += item.totalSum;
     });
     return sum;
   };
 
   const handleOrder = () => {
     if (formData.name === "" || formData.address === "" || formData.time === "") {
-      return toast.error("يرجى ملء جميع الحقول");
+      return toast.error(getWord("errFillEmpty"));
     }
 
     const message = `
@@ -65,53 +66,51 @@ ${cart
     <div className="checkout">
       <Header />
       <div className="container">
-        <h2 className="checkout--title">ارسال الطلب</h2>
+        <h2 className="checkout--title"></h2>
         <div className="checkout--content">
           <div className="checkout--summary">
             <section className="section">
-              <h3 className="section--title">الحساب</h3>
+              <h3 className="section--title">{getWord("computation")}</h3>
               <ul>
                 {cart.map((item, index) => (
                   <li key={index}>
-                    {item.productName} [الكمية: {item.productQuantity}]
-                    <span className="price">${item.productPrice}</span>
+                    {item.productName} [{getWord("quantity")}: {item.quantity}]
+                    <span className="price">${item.totalSum}</span>
                   </li>
                 ))}
               </ul>
               <p>
-                التوصيل:
-                <span className="price">$20</span>
+                {getWord("delivery")}:<span className="price">$20</span>
               </p>
               <p>
-                المجموع الكلي:
-                <span className="price">${cartTotal + 20}</span>
+                {getWord("summation")}:<span className="price">${cartTotal + 20}</span>
               </p>
               <button className="btn btn--primary" onClick={handleOrder}>
-                اطلب الآن
+                {getWord("orderNow")}
               </button>
             </section>
           </div>
           <div className="checkout--info">
             <section className="section">
-              <h3 className="section--title">معلومات عن المشتري</h3>
+              <h3 className="section--title">{getWord("buyerInfo")}</h3>
               <div className="form-group">
-                <label htmlFor="name">اسم المشتري</label>
+                <label htmlFor="name">{getWord("buyerName")}</label>
                 <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} />
               </div>
             </section>
             <section className="section">
-              <h3 className="section--title">مزيد من المعلومات عن الطلب</h3>
+              <h3 className="section--title">{getWord("orderMoreInfo")}</h3>
               <div className="form-group">
-                <label htmlFor="address">عنوان التوصيل</label>
+                <label htmlFor="address">{getWord("orderAddress")}</label>
                 <input type="text" name="address" id="address" value={formData.address} onChange={handleChange} />
               </div>
               <div className="form-group">
-                <label htmlFor="time">وقت التوصيل</label>
+                <label htmlFor="time">{getWord("orderTime")}</label>
                 <input type="datetime-local" name="time" id="time" value={formData.time} onChange={handleChange} />
               </div>
             </section>
             <section className="section">
-              <h3 className="section--title">تعليق</h3>
+              <h3 className="section--title">{getWord("orderComment")}</h3>
               <textarea id="comment" name="comment" value={formData.comment} onChange={handleChange}></textarea>
             </section>
           </div>

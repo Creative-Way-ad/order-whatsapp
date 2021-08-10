@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { AppContext } from "../Context";
 
-export default function Card({ image, name, description, price }) {
+export default function Card({ id, image, name, description, price }) {
   const { handleOpenModal } = useContext(AppContext);
 
   return (
@@ -12,6 +12,7 @@ export default function Card({ image, name, description, price }) {
           className="card--image__overlay"
           onClick={() => {
             handleOpenModal({
+              productId: id,
               productName: name,
               productImage: image,
               productPrice: price,
