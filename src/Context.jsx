@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import { getWord } from "./translate";
 
 export const AppContext = React.createContext();
 
@@ -25,13 +27,17 @@ export function AppContextProvider({ children }) {
   };
 
   const handleAddToCart = (product) => {
-    const index = cart.findIndex((el) => el.productName === product.productName);
+    setCart(cart.concat([product]));
+    toast.success(getWord("ProductAddedToCart"));
+  };
+
+  const handleRemoveFromCart = (index) => {
     console.log(index);
-    if (index !== -1) {
-      cart[index].productQuantity += parseInt(product.productQuantity, 10);
-    } else {
-      setCart(cart.concat([product]));
-    }
+    const tmpCart = [...cart];
+    tmpCart.splice(index, 1);
+    console.log(tmpCart);
+    setCart(tmpCart);
+    toast.success(getWord("ProductRemovedFromCart"));
   };
 
   const filterProducts = (filter) => {
@@ -76,6 +82,7 @@ export function AppContextProvider({ children }) {
         handleCloseModal,
         cart,
         handleAddToCart,
+        handleRemoveFromCart,
         products,
         filterProducts,
       }}

@@ -16,8 +16,7 @@ export default function AddCartModal() {
   };
 
   const sumAllSelectedOptions = () => {
-    let sum = 0;
-    console.log(options);
+    let sum = options.size ? 0 : formData.productPrice;
     Object.keys(options).forEach((key) => {
       options[key].forEach((el) => {
         if (el.name === "size") {

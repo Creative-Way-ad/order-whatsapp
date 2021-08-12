@@ -18,6 +18,7 @@ const arabic = {
   orderNow: "اطلب الآن",
   buyerInfo: "معلومات عن المشتري",
   buyerName: "اسم المشتري",
+  buyerPhone: "رقم الهاتف",
   orderMoreInfo: "مزيد من المعلومات عن الطلب",
   orderAddress: "عنوان التوصيل",
   orderTime: "وقت التوصيل",
@@ -25,4 +26,7 @@ const arabic = {
   errFillEmpty: "الرجاء تعبئة المعلومات المطلوبة",
   addCart: "اضف للسلة",
   close: "اغلاق",
+  ProductAddedToCart: "تمت الاضافة إلى السلة",
+  ProductRemovedFromCart: "تمت الحذف عن السلة",
+  cartIsEmpty: "السلة فارغة",
 };
