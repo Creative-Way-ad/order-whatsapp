@@ -1,0 +1,15 @@
+.Toastify__toast-body {
+  direction: rtl;
+}
+
+.Toastify__close-button {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.Toastify__toast-container {
+  @include responsive-mobile {
+    width: 85vw;
+  }
+}

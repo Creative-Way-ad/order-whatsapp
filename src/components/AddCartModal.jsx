@@ -70,9 +70,9 @@ export default function AddCartModal() {
           onClick={(e) => !e.target.closest(".modal--content") && handleCloseModal()}
         >
           <motion.div
-            animate={{ top: "35%" }}
+            animate={{ top: "50%" }}
             initial={{ top: "-10%" }}
-            exit={{ top: "-30%" }}
+            exit={{ top: "-50%" }}
             className="modal--content"
           >
             <header className="modal--header">

@@ -29,7 +29,7 @@
 
   &--content {
     position: relative;
-    top: 35%;
+    top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
     width: 550px;
@@ -66,10 +66,16 @@
           height: 200px;
         }
       }
-      .form-group label {
-        margin-left: 15px;
-        white-space: nowrap;
-        min-width: 60px;
+      .form-group {
+        label {
+          margin-left: 15px;
+          white-space: nowrap;
+          min-width: 60px;
+        }
+        input,
+        select {
+          width: 100%;
+        }
       }
     }
   }

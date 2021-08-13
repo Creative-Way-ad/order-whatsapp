@@ -54,9 +54,9 @@ export default function Menu() {
             <motion.nav
               className="nav"
               onClick={handleOpen}
-              animate={{ right: 0 }}
-              initial={{ right: -400 }}
-              exit={{ right: -400 }}
+              animate={{ left: 0 }}
+              initial={{ left: -400 }}
+              exit={{ left: -400 }}
             >
               <span className="menu__close">
                 <FaTimes />

@@ -19,6 +19,11 @@ export default function Checkout() {
   const [cartTotal, setCartTotal] = useState(0);
 
   const handleChange = (e) => {
+    if (e.target.name === "phone") {
+      if (e.target.value.match(/^([^0-9]*)$/g)) {
+        return e.preventDefault();
+      }
+    }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -67,7 +72,7 @@ export default function Checkout() {
 المنتجات المطلوبه:
 ${cart
   .map((item) => {
-    return `${item.productName} ${item.productQuantity} ${item.productPrice}`;
+    return `${item.productName}, بعدد: ${item.quantity}, بثمن: $${item.totalSum}`;
   })
   .join("\n")}
 
@@ -77,8 +82,9 @@ ${cart
 
 اسمي: ${formData.name}
 العنوان: ${formData.address}
-الوقت: ${formData.time}
 التفاصيل: ${formData.comment || "لا يوجد"}
+الوقت: 
+${new Date(formData.time).toLocaleString()}
 
 
     `;

@@ -25,6 +25,7 @@
     width: 100%;
     min-height: 100vh;
     z-index: 10;
+    direction: ltr;
 
     .nav {
       position: relative;
@@ -34,6 +35,7 @@
       overflow-y: auto;
       color: #000000;
       padding: 40px 10px 10px 10px;
+      direction: rtl;
 
       @include responsive-mobile {
         width: 300px;
