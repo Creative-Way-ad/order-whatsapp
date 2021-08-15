@@ -19,11 +19,11 @@ export default function Checkout() {
   const [cartTotal, setCartTotal] = useState(0);
 
   const handleChange = (e) => {
-    if (e.target.name === "phone") {
-      if (e.target.value.match(/^([^0-9]*)$/g)) {
-        return e.preventDefault();
-      }
-    }
+    // if (e.target.name === "phone") {
+    //   if (e.target.value.match(/^([^0-9]*)$/g)) {
+    //     return e.preventDefault();
+    //   }
+    // }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -72,20 +72,19 @@ export default function Checkout() {
 المنتجات المطلوبه:
 ${cart
   .map((item) => {
-    return `${item.productName}, بعدد: ${item.quantity}, بثمن: $${item.totalSum}`;
+    return `${item.productName}, بعدد: ${item.quantity}, بثمن: ${item.totalSum} رس`;
   })
   .join("\n")}
 
-المبلغ المطلوب + التوصيل: $${sumCartTotals() + delivery}
+المبلغ المطلوب + التوصيل: ${sumCartTotals() + delivery} رس
 
 =============
 
 اسمي: ${formData.name}
 العنوان: ${formData.address}
 التفاصيل: ${formData.comment || "لا يوجد"}
-الوقت: 
-${new Date(formData.time).toLocaleString()}
-
+التاريخ: ${new Date(formData.time).toLocaleDateString()}
+الوقت: ${new Date(formData.time).toLocaleTimeString()}
 
     `;
     window.location.href = `https://wa.me/+201008252601?text=${encodeURIComponent(message)}`;
@@ -137,7 +136,7 @@ ${new Date(formData.time).toLocaleString()}
                   </div>
                   <div className="form-group">
                     <label htmlFor="phone">{getWord("buyerPhone")}</label>
-                    <input type="text" name="phone" id="phone" value={formData.phone} onChange={handleChange} />
+                    <input type="number" name="phone" id="phone" value={formData.phone} onChange={handleChange} />
                   </div>
                 </section>
                 <section className="section">
