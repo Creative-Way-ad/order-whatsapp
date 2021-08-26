@@ -3,7 +3,7 @@ export function getWord(key) {
 }
 
 const arabic = {
-  SiteTitle: "عنوان الموقع",
+  SiteTitle: "اروما للعطور",
   SiteDescription: "وصف الموقع",
   size: "حجم",
   extras: "إضافات",
@@ -29,4 +29,5 @@ const arabic = {
   ProductAddedToCart: "تمت الاضافة إلى السلة",
   ProductRemovedFromCart: "تمت الحذف عن السلة",
   cartIsEmpty: "السلة فارغة",
+  unit: "ر.س",
 };

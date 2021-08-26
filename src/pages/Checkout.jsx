@@ -72,15 +72,16 @@ export default function Checkout() {
 المنتجات المطلوبه:
 ${cart
   .map((item) => {
-    return `${item.productName}, بعدد: ${item.quantity}, بثمن: ${item.totalSum} رس`;
+    return `${item.productName}, بعدد: ${item.quantity}, بثمن: ${item.totalSum} ${getWord("unit")}`;
   })
   .join("\n")}
 
-المبلغ المطلوب + التوصيل: ${sumCartTotals() + delivery} رس
+المبلغ المطلوب + التوصيل: ${sumCartTotals() + delivery} ${getWord("unit")}  
 
 =============
 
 اسمي: ${formData.name}
+الهاتف: ${formData.phone}
 العنوان: ${formData.address}
 التفاصيل: ${formData.comment || "لا يوجد"}
 التاريخ: ${new Date(formData.time).toLocaleDateString()}
@@ -112,15 +113,15 @@ ${cart
                           <FaTrashAlt />
                         </span>
                         {item.productName} [{getWord("quantity")}: {item.quantity}]
-                        <span className="price">${item.totalSum}</span>
+                        <span className="price">{item.totalSum} {getWord("unit")}</span>
                       </li>
                     ))}
                   </ul>
                   <p>
-                    {getWord("delivery")}:<span className="price">$20</span>
+                    {getWord("delivery")}:<span className="price">20 {getWord("unit")}</span>
                   </p>
                   <p>
-                    {getWord("summation")}:<span className="price">${cartTotal + delivery}</span>
+                    {getWord("summation")}:<span className="price">{cartTotal + delivery} {getWord("unit")}</span>
                   </p>
                   <button className="btn btn--primary" onClick={handleOrder}>
                     {getWord("orderNow")}
