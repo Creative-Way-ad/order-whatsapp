@@ -29,5 +29,5 @@ const arabic = {
   ProductAddedToCart: "تمت الاضافة إلى السلة",
   ProductRemovedFromCart: "تمت الحذف عن السلة",
   cartIsEmpty: "السلة فارغة",
-  unit: "ر.س",
+  unit: "رس",
 };

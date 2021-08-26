@@ -81,7 +81,7 @@ export default function AddCartModal() {
             </header>
             <div className="main">
               <img src={modalData.productImage} alt={modalData.productName} />
-              <span className="price">${modalData.productPrice}</span>
+              <span className="price">{modalData.productPrice}  {getWord("unit")}</span>
               <form className="form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="quantity">الكمية</label>
@@ -105,7 +105,7 @@ export default function AddCartModal() {
                       )}
                       {options[key].map((option, index) => (
                         <option key={index} value={option.value}>
-                          {option.value} [${option.price}]
+                          {option.value} [{option.price}  ${getWord("unit")}]
                         </option>
                       ))}
                     </select>
