@@ -105,7 +105,7 @@ export default function AddCartModal() {
                       )}
                       {options[key].map((option, index) => (
                         <option key={index} value={option.value}>
-                          {option.value} [{option.price}  ${getWord("unit")}]
+                          {option.value} [{option.price}  {getWord("unit")}]
                         </option>
                       ))}
                     </select>
